@@ -1,0 +1,4 @@
+import React, { useEffect, useState } from 'react';
+import { Lightbulb } from 'lucide-react';
+import api from '../services/api';
+export default function Tips(){const [tips,setTips]=useState([]);const [error,setError]=useState('');useEffect(()=>{api.get('/tips').then(r=>setTips(r.data.tips)).catch(()=>setError('Não foi possível carregar as dicas.'));},[]);return <section><div className="page-heading"><div><span className="eyebrow">INFORMAÇÃO E CONSCIENTIZAÇÃO</span><h1>Feed de dicas</h1><p>Ideias práticas para reduzir seu impacto ambiental.</p></div></div>{error&&<div className="error">{error}</div>}<div className="tips-list">{tips.map(t=><article className="tip-card" key={t._id}><div className="card-symbol"><Lightbulb/></div><div><span className="eyebrow">{t.category}</span><h2>{t.title}</h2><p>{t.content}</p></div></article>)}</div></section>;}
