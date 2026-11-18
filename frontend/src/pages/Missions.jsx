@@ -1,13 +1,15 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { CheckCircle2, Target } from 'lucide-react';
+import { CheckCircle2, Target, CalendarDays } from 'lucide-react';
 
 import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
 export default function Missions() {
   const [missions, setMissions] = useState([]);
+  const [weekStart, setWeekStart] = useState(null);
+  const [weekEnd, setWeekEnd] = useState(null);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
 
@@ -16,7 +18,11 @@ export default function Missions() {
   async function load() {
     try {
       const { data } = await api.get('/missions');
+
       setMissions(data.missions);
+      setWeekStart(data.weekStart);
+      setWeekEnd(data.weekEnd);
+      setError('');
     } catch {
       setError('Não foi possível carregar as missões.');
     }
@@ -26,6 +32,14 @@ export default function Missions() {
     load();
   }, []);
 
+  function formatDate(date) {
+    if (!date) return '';
+
+    return new Date(date).toLocaleDateString('pt-BR', {
+      timeZone: 'America/Sao_Paulo'
+    });
+  }
+
   async function complete(id) {
     setError('');
     setMessage('');
@@ -33,10 +47,7 @@ export default function Missions() {
     try {
       const { data } = await api.post(`/missions/${id}/complete`);
 
-      // Atualiza os dados do usuário, incluindo a pontuação.
       await refreshUser();
-
-      // Atualiza a lista de missões.
       await load();
 
       setMessage(`${data.message} Total: ${data.points} pontos.`);
@@ -57,6 +68,15 @@ export default function Missions() {
           <p>Transforme atitudes do cotidiano em ações positivas.</p>
         </div>
       </div>
+
+      {weekStart && weekEnd && (
+        <div className="success">
+          <CalendarDays size={18} />
+          Missões da semana: {formatDate(weekStart)} até {formatDate(
+            new Date(new Date(weekEnd).getTime() - 1)
+          )}
+        </div>
+      )}
 
       {message && <div className="success">{message}</div>}
 
