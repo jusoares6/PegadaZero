@@ -1,0 +1,65 @@
+
+.result-card .carbon-footprint-light {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid;
+  border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.result-card .carbon-light-indicator {
+  display: block;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.result-card .carbon-light-content h3 {
+  margin: 0 0 8px;
+}
+
+.result-card .carbon-light-content p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+/* Classificação baixa - Verde */
+.result-card .carbon-footprint-light.carbon-light--low {
+  color: #16803d;
+  background-color: #eaf7ee;
+  border-color: #16803d;
+}
+
+.result-card .carbon-light--low .carbon-light-indicator {
+  background-color: #16803d;
+  box-shadow: 0 0 12px #16803d;
+}
+
+/* Classificação média - Amarelo */
+.result-card .carbon-footprint-light.carbon-light--medium {
+  color: #806000;
+  background-color: #fff8dc;
+  border-color: #d6a900;
+}
+
+.result-card .carbon-light--medium .carbon-light-indicator {
+  background-color: #e5b000;
+  box-shadow: 0 0 12px #e5b000;
+}
+
+/* Classificação alta - Vermelho */
+.result-card .carbon-footprint-light.carbon-light--high {
+  color: #c62828;
+  background-color: #fcebea;
+  border-color: #c62828;
+}
+
+.result-card .carbon-light--high .carbon-light-indicator {
+  background-color: #dc3434;
+  box-shadow: 0 0 12px #dc3434;
+}

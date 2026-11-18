@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import InfoTooltip from '../components/InfoTooltip';
+import CarbonFootprintLight from '../components/CarbonFootprintLight';
+import '../components/CarbonFootprintLight.css';
 
 export default function Calculator() {
   const [form, setForm] = useState({
@@ -194,6 +196,10 @@ export default function Calculator() {
 
           <p>de CO₂ equivalente por mês</p>
 
+          <CarbonFootprintLight
+            totalKgCo2eMonth={result.totalKgCo2eMonth}
+          />
+
           <button
             className="secondary"
             type="button"
@@ -205,7 +211,6 @@ export default function Calculator() {
       )}
 
       <p className="disclaimer">
-
       </p>
     </section>
   );
