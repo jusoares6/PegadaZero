@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import HeatMap from './pages/HeatMap';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -31,6 +32,7 @@ function App() {
             <Route path="/calculadora" element={<Calculator />} />
             <Route path="/missoes" element={<Missions />} />
             <Route path="/dicas" element={<Tips />} />
+            <Route path="/mapa" element={<HeatMap />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/" replace />} />

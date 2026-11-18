@@ -1,0 +1,19 @@
+/* Mapa de calor: reaproveita as classes do styles.css (panel, panel-heading, page-heading,
+   points-tag, disclaimer, loading, error). Aqui ficam apenas os ajustes de layout do mapa. */
+.heatmap-status{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.heatmap-updated{color:#75847b;font-size:12px}
+
+.heatmap-layout{display:grid;grid-template-columns:2fr 1fr;gap:18px;align-items:start}
+.heatmap-canvas{height:480px;width:100%;border-radius:10px;position:relative;z-index:0;isolation:isolate}
+.heatmap-canvas.leaflet-container{font-family:inherit} /* mantém a fonte DM Sans no mapa */
+.heatmap-canvas .leaflet-tile-pane{filter:grayscale(.85) brightness(1.05) contrast(.95)}
+.heatmap-legend{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:12px;color:#75847b}
+.legend-bar{flex:1;height:8px;border-radius:99px}
+
+.heatmap-ranking ol{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+.heatmap-ranking li{display:flex;align-items:center;gap:10px;font-size:13px;color:#43544a}
+.heatmap-ranking .zone-name{flex:1}
+.heatmap-ranking strong{color:#1e3028}
+.heatmap-ranking .dot{width:11px;height:11px;border-radius:50%}
+
+@media(max-width:900px){.heatmap-layout{grid-template-columns:1fr}.heatmap-canvas{height:360px}}

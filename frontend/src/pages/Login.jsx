@@ -36,7 +36,7 @@ export default function Login() {
           🌱 PegadaZero
         </div>
 
-        <h1>Bem-vindo de volta</h1>
+        <h1>Bem-vindo!</h1>
         <p>Acompanhe e reduza seu impacto no planeta.</p>
 
         {error && <div className="error">{error}</div>}
