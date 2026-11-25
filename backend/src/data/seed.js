@@ -82,23 +82,102 @@ for (const mission of missions) {
   );
 }
 
+
 const tips = [
+  // TRANSPORTE E MOBILIDADE
   {
-    title: 'Repense pequenos trajetos',
-    content: 'Para deslocamentos curtos, considere caminhar, pedalar ou usar transporte coletivo quando possível.',
-    category: 'Transporte'
+    title: 'Adote a carona solidária (Carpooling)',
+    content: 'Compartilhar o trajeto diário de carro com outras pessoas reduz as emissões individuais por passageiro e contribui para diminuir o congestionamento urbano.',
+    category: 'Transporte e Mobilidade',
+    source: 'CETESB / Ministério das Cidades'
   },
   {
-    title: 'Evite desperdício de alimentos',
-    content: 'Planeje as compras e aproveite os alimentos integralmente para reduzir resíduos.',
-    category: 'Alimentação'
+    title: 'Priorize o transporte ativo em trajetos curtos',
+    content: 'Para deslocamentos curtos, considere caminhar ou utilizar a bicicleta. Além de não gerar emissões diretas durante o trajeto, essas alternativas contribuem para a saúde e reduzem a poluição urbana.',
+    category: 'Transporte e Mobilidade',
+    source: 'ONU Meio Ambiente'
   },
   {
-    title: 'Consumo consciente de energia',
-    content: 'Apague as luzes ao sair e evite manter equipamentos ligados sem necessidade.',
-    category: 'Energia'
+    title: 'Mantenha a calibragem dos pneus em dia',
+    content: 'Pneus com pressão inadequada aumentam a resistência ao rolamento e podem elevar o consumo de combustível. Verifique regularmente a pressão recomendada pelo fabricante.',
+    category: 'Transporte e Mobilidade',
+    source: 'INMETRO / Programa Brasileiro de Etiquetagem Veicular'
+  },
+  {
+    title: 'Abasteça com etanol quando for vantajoso',
+    content: 'Em veículos flex, o etanol pode apresentar menor emissão de gases de efeito estufa no ciclo de vida em comparação à gasolina. Considere também o preço e a eficiência do veículo.',
+    category: 'Transporte e Mobilidade',
+    source: 'EPE / RenovaBio'
+  },
+
+  // CONSUMO DE ENERGIA ELÉTRICA
+  {
+    title: 'Retire aparelhos em stand-by da tomada',
+    content: 'Televisores, micro-ondas e outros aparelhos podem continuar consumindo energia mesmo quando estão em modo de espera. Desconecte equipamentos que não precisam permanecer ligados.',
+    category: 'Consumo de Energia Elétrica',
+    source: 'PROCEL / Eletrobras'
+  },
+  {
+    title: 'Ajuste o chuveiro elétrico para a posição Verão',
+    content: 'Nos dias mais quentes, utilizar a posição Verão reduz a potência do chuveiro e pode diminuir significativamente o consumo de energia elétrica durante o banho.',
+    category: 'Consumo de Energia Elétrica',
+    source: 'ANEEL / PROCEL'
+  },
+  {
+    title: 'Troque lâmpadas antigas por LED',
+    content: 'As lâmpadas LED são mais eficientes energeticamente e possuem maior vida útil em comparação às lâmpadas incandescentes, ajudando a reduzir o consumo de eletricidade.',
+    category: 'Consumo de Energia Elétrica',
+    source: 'PROCEL / Ministério de Minas e Energia'
+  },
+
+  // ALIMENTAÇÃO SUSTENTÁVEL
+  {
+    title: 'Participe da Segunda Sem Carne',
+    content: 'Experimente substituir a proteína animal por leguminosas, como feijão, lentilha e grão-de-bico, em pelo menos um dia da semana. Essa mudança pode contribuir para reduzir sua pegada de carbono alimentar.',
+    category: 'Alimentação Sustentável',
+    source: 'Sociedade Vegetariana Brasileira / ONU'
+  },
+  {
+    title: 'Evite o desperdício planejando as compras',
+    content: 'Planeje suas refeições, confira o que já tem em casa e compre apenas o necessário. O desperdício de alimentos também representa desperdício de água, energia e recursos utilizados na produção e no transporte.',
+    category: 'Alimentação Sustentável',
+    source: 'FAO / ONU Brasil'
+  },
+  {
+    title: 'Consuma alimentos locais e da estação',
+    content: 'Priorize frutas, legumes e verduras produzidos na sua região e que estejam na época de colheita. Essa escolha pode reduzir a necessidade de longos deslocamentos e armazenamento.',
+    category: 'Alimentação Sustentável',
+    source: 'EMBRAPA / Ministério do Meio Ambiente'
+  },
+
+  // GESTÃO DE RESÍDUOS
+  {
+    title: 'Separe o lixo seco do orgânico',
+    content: 'Separe papel, plástico, vidro e metal dos resíduos orgânicos. A destinação correta dos recicláveis favorece o reaproveitamento de materiais e reduz a necessidade de extração de novas matérias-primas.',
+    category: 'Gestão de Resíduos',
+    source: 'Ministério do Meio Ambiente / SINIR'
+  },
+  {
+    title: 'Faça compostagem doméstica',
+    content: 'Restos de frutas, legumes e outros resíduos orgânicos podem ser transformados em adubo por meio da compostagem. Essa prática reduz o volume de resíduos enviados aos aterros sanitários.',
+    category: 'Gestão de Resíduos',
+    source: 'EMBRAPA / Ministério do Meio Ambiente'
+  },
+  {
+    title: 'Substitua descartáveis por reutilizáveis',
+    content: 'Utilize ecobags, garrafas reutilizáveis e canecas próprias no dia a dia. Essas alternativas ajudam a reduzir o descarte de embalagens e produtos de uso único.',
+    category: 'Gestão de Resíduos',
+    source: 'ONU Meio Ambiente - Campanha Mares Limpos'
   }
 ];
+
+for (const tip of tips) {
+  await Tip.updateOne(
+    { title: tip.title },
+    { $set: { ...tip, active: true } },
+    { upsert: true }
+  );
+}
 
 for (const tip of tips) {
   await Tip.updateOne(
