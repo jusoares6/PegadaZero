@@ -218,6 +218,8 @@ O desenvolvimento do PegadaZero foi acompanhado pelo Git, utilizando commits par
 | `bd03aa7` | Implementação do mapa de calor e integração com Electricity Maps |
 | `bfb92c3` | Implementação do Farol de classificação da pegada de carbono |
 | `79fc1f6` | Implementação do sistema de missões semanais |
+| `d912b21` | Atualização do feed de dicas sustentáveis |
+| `28c44a3` | Atualização do README do projeto |
 
 O histórico completo pode ser consultado na aba **Commits** do repositório no GitHub.
 
