@@ -234,14 +234,18 @@ O histórico completo pode ser consultado na aba **Commits** do repositório no 
 
 ## 12. Documentação complementar
 
-O projeto conta com documentação complementar desenvolvida pela equipe, disponibilizada separadamente do repositório, incluindo:
+A documentação produzida pela equipe ao longo das etapas da A3 está disponível na pasta [`docs/`](docs/):
 
-- Documento de requisitos funcionais e não funcionais.
-- Diagrama de casos de uso.
-- Diagrama de classes.
-- Diagramas de sequência.
-
-Esses materiais documentam os requisitos, a estrutura e os principais fluxos de funcionamento da aplicação.
+| **Documento** | **Conteúdo** |
+|---|---|
+| [Etapa 1 – Identificação do problema](docs/Entregas/01_Etapa1_Identificacao_do_Problema.pdf) | Problema ambiental, justificativa, público e objetivos (ODS 13) |
+| [Etapa 2 – Escopo e planejamento](docs/Entregas/02_Etapa2_Escopo_e_Planejamento.pdf) | Escopo do MVP, Scrumban, equipe, cronograma, riscos e stakeholders |
+| [Etapa 3 – Engenharia de requisitos](docs/Entregas/03_Etapa3_Engenharia_de_Requisitos.xlsx) | Elicitação, análise, requisitos, validação e rastreabilidade |
+| [Diagramas UML](docs/UML/) | Casos de uso, classes e sequência |
+| [Etapa 5 – Projeto e arquitetura](docs/Entregas/05_Etapa5_Projeto_e_Arquitetura.pdf) | Arquitetura em camadas com MVC e aderência à ISO/IEC 25010 |
+| [Etapa 6 – Vídeo do MVP](docs/Entregas/06_Etapa6_Video_MVP.mp4) | Demonstração das funcionalidades em execução |
+| [Etapa 7 – Gerência de configuração](docs/Entregas/07_Etapa7_Gerencia_de_Configuracao.pdf) | Repositório, histórico de commits, organização dos arquivos e README |
+| [Etapa 8 – Impacto ambiental](docs/Entregas/08_Etapa8_Impacto_Ambiental.pdf) | Indicadores, métricas e possíveis resultados |
 
 ## 13. Considerações finais
 
